@@ -6939,6 +6939,63 @@ body::before {
     letter-spacing: 4px;
     animation: signalPulse 2.7s ease-in-out infinite;
 }
+/* =========================================
+   MOBILE — LOGO NAVBAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        width: calc(100% - 28px);
+        height: 68px;
+    }
+
+    .logo {
+        gap: 7px;
+        min-width: 0;
+    }
+
+    .logo-mark {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+    .logo-text {
+        font-size: 14px;
+        letter-spacing: -0.4px;
+        white-space: nowrap;
+    }
+
+    .mobile-menu {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+}
+
+
+/* HP kecil */
+@media (max-width: 380px) {
+
+    .nav-container {
+        width: calc(100% - 24px);
+    }
+
+    .logo-mark {
+        width: 29px;
+        height: 29px;
+    }
+
+    .logo-text {
+        font-size: 13px;
+    }
+
+    .mobile-menu {
+        width: 36px;
+        height: 36px;
+    }
+}
 
 .process-item:nth-child(2) .process-content::after { color: rgba(88,191,255,.36); animation-delay: .25s; }
 .process-item:nth-child(3) .process-content::after { color: rgba(141,156,255,.38); animation-delay: .5s; }
