@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekam Suara — CoughAnalyzer</title>
+    <meta name="description" content="Perekaman suara untuk proyek edukasi CoughAnalyzer.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <span class="logo-mark">
+
+                    <img
+                        src="images/logo.png"
+                        alt="CoughAnalyzer"
+                    >
+
+                </span>
+
+                <span class="logo-text">
+                    Cough<span>Analyzer</span>
+                </span>
+
+            </a>
+
+
+            <nav class="desktop-menu">
+
+                <a
+                    href="index.html"
+                    class="active"
+                >
+                    Beranda
+                </a>
+
+                <a href="index.html#kenali-tbc">
+                    Kenali TBC
+                </a>
+
+                <a href="index.html#cara-kerja">
+                    Cara Kerja
+                </a>
+
+                <a href="index.html#tentang">
+                    Tentang
+                </a>
+
+            </nav>
+
+
+            <button
+                class="mobile-menu"
+                type="button"
+                aria-label="Buka menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+
+    <main>
+
+        <!-- =========================
+             RECORDER
+        ========================== -->
+
+        <section
+            class="recorder-section"
+            id="recorder"
+        >
+
+            <div class="recorder-bg-glow glow-one"></div>
+
+            <div class="recorder-bg-glow glow-two"></div>
+
+
+            <div class="recorder-container">
+
+
+                <div class="recorder-header">
+
+                    <span class="recorder-label">
+
+                        <span class="label-dot"></span>
+
+                        AUDIO LAB
+
+                    </span>
+
+
+                    <h2>
+
+                        Siap Merekam
+                        <br>
+
+                        <span>
+                            Suara Batukmu?
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Pastikan berada di tempat yang cukup
+                        tenang, lalu tekan tombol rekam
+                        untuk memulai.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROGRESS -->
+
+                <div class="analysis-progress">
+
+
+                    <div
+                        class="progress-step active"
+                        id="stepRecord"
+                    >
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <span>
+                            Rekam
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-line"></div>
+
+
+                    <div
+                        class="progress-step"
+                        id="stepAnalyze"
+                    >
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <span>
+                            Analisis
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-line"></div>
+
+
+                    <div
+                        class="progress-step"
+                        id="stepResult"
+                    >
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <span>
+                            Hasil
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RECORDER CARD -->
+
+                <div class="recorder-card">
+
+
+                    <div class="record-status">
+
+                        <span
+                            class="status-indicator"
+                            id="statusIndicator"
+                        ></span>
+
+                        <span id="recordStatus">
+                            Siap merekam
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="mic-area">
+
+                        <div class="mic-ring ring-one"></div>
+
+                        <div class="mic-ring ring-two"></div>
+
+                        <div class="mic-ring ring-three"></div>
+
+                        <div class="mic-glow"></div>
+
+
+                        <div
+                            class="mic-circle"
+                            id="micCircle"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+
+                                <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"/>
+
+                                <path d="M19 11a7 7 0 0 1-14 0"/>
+
+                                <path d="M12 18v4"/>
+
+                                <path d="M8 22h8"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="record-timer"
+                        id="recordTimer"
+                    >
+                        00:00
+                    </div>
+
+
+                    <p
+                        class="record-helper"
+                        id="recordHelper"
+                    >
+
+                        Tekan tombol di bawah
+                        untuk mulai merekam
+
+                    </p>
+
+
+
+                    <div
+                        class="waveform"
+                        id="waveform"
+                    >
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+
+                    <button
+    class="record-button"
+    id="recordButton"
+    type="button"
+>
+
+    <span class="record-button-inner">
+
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"/>
+            <path d="M19 11a7 7 0 0 1-14 0"/>
+            <path d="M12 18v4"/>
+        </svg>
+
+    </span>
+
+    <span
+        class="record-button-text"
+        id="recordButtonText"
+    >
+        MULAI REKAM
+    </span>
+
+</button>
+
+
+                    <!-- =========================
+                         RECORDING PREVIEW
+                    ========================== -->
+
+                    <div
+                        class="recording-preview"
+                        id="recordingPreview"
+                    >
+
+
+                        <div class="preview-header">
+
+                            <div>
+
+                                <span class="preview-label">
+                                    RECORDING READY
+                                </span>
+
+
+                                <h3>
+                                    Dengarkan Rekamanmu
+                                </h3>
+
+                            </div>
+
+
+                            <span
+                                class="preview-duration"
+                                id="previewDuration"
+                            >
+                                00:00
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="audio-player-box">
+
+
+                            <button
+                                class="audio-play-button"
+                                id="audioPlayButton"
+                                type="button"
+                                aria-label="Putar rekaman"
+                            >
+                                ▶
+                            </button>
+
+
+
+                            <div class="audio-player-content">
+
+
+                                <div
+                                    class="audio-wave-preview"
+                                    id="audioWavePreview"
+                                >
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+
+
+                                <div class="audio-time">
+
+                                    <span id="audioCurrentTime">
+                                        00:00
+                                    </span>
+
+
+                                    <span id="audioTotalTime">
+                                        00:00
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <audio id="recordedAudio"></audio>
+
+
+
+                        <button
+                            class="analyze-audio-button"
+                            id="analyzeAudioButton"
+                            type="button"
+                        >
+
+                            <span>
+                                ✦
+                            </span>
+
+                            Analisis Audio
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="record-again-button"
+                            id="recordAgainButton"
+                            type="button"
+                        >
+
+                            ↻ Rekam Ulang
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- TIPS -->
+
+                    <div class="recorder-tips">
+
+
+                        <div class="tip-icon">
+                            ✦
+                        </div>
+
+
+                        <div class="tip-content">
+
+                            <strong>
+                                Tips sebelum merekam
+                            </strong>
+
+
+                            <p>
+
+                                Cari tempat yang relatif tenang,
+                                pegang perangkat dengan stabil,
+                                dan lakukan batuk secara natural.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-logo">
+
+                Cough<span>Analyzer</span>
+
+            </div>
+
+
+            <p>
+                Audio analysis project for educational purposes.
+            </p>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Cough Analyzer
+                </span>
+
+
+                <span>
+                    Think • Analyze • Understand
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+    <script>
+        /* Rekaman hanya dapat diakses setelah profil selesai diisi. */
+        const savedProfile = sessionStorage.getItem("coughAnalyzerProfile");
+
+        if (!savedProfile) {
+            window.location.replace("profil.html");
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

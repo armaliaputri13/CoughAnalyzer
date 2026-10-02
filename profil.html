@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Profil Analisis — Pengembangan Reka TB
+    </title>
+
+    <meta
+        name="description"
+        content="Lengkapi profil sebelum melakukan analisis audio pada Pengembangan Reka TB."
+    >
+
+    <link
+        rel="stylesheet"
+        href="profil.css"
+    >
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND DECORATION
+    ========================== -->
+
+    <div class="background-glow glow-blue"></div>
+    <div class="background-glow glow-red"></div>
+
+    <div class="floating-circle circle-one"></div>
+    <div class="floating-circle circle-two"></div>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="profile-header">
+
+        <div class="profile-header-inner">
+
+            <a
+                href="index.html"
+                class="profile-logo"
+            >
+
+                <span class="profile-logo-mark">
+                    <img
+                        src="images/logo.png"
+                        alt="CoughAnalyzer"
+                    >
+                </span>
+
+                <span class="profile-logo-text">
+                    Cough<span>Analyzer</span>
+                </span>
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Beranda
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="profile-main">
+
+        <div class="profile-container">
+
+
+            <!-- =========================
+                 PROGRESS
+            ========================== -->
+
+            <div class="progress-wrapper">
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step active">
+
+                    <div class="progress-number">
+                        01
+                    </div>
+
+                    <span>
+                        Profil
+                    </span>
+
+                </div>
+
+
+                <div class="progress-step">
+
+                    <div class="progress-number">
+                        02
+                    </div>
+
+                    <span>
+                        Rekam
+                    </span>
+
+                </div>
+
+
+                <div class="progress-step">
+
+                    <div class="progress-number">
+                        03
+                    </div>
+
+                    <span>
+                        Hasil
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 INTRO
+            ========================== -->
+
+            <section class="profile-intro">
+
+                <span class="profile-label">
+                    LANGKAH 01
+                </span>
+
+                <h1>
+                    Lengkapi
+                    <span>Profilmu.</span>
+                </h1>
+
+                <p>
+                    Lengkapi beberapa informasi singkat sebelum
+                    melakukan rekaman suara. Data ini digunakan
+                    untuk melengkapi informasi hasil analisis.
+                </p>
+
+            </section>
+
+
+
+            <!-- =========================
+                 PROFILE CARD
+            ========================== -->
+
+            <section class="profile-card">
+
+
+                <!-- =========================
+                     CARD HEADER
+                ========================== -->
+
+                <div class="card-header">
+
+                    <div class="card-header-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Profil Pengguna
+                        </h2>
+
+                        <p>
+                            Isi data berikut dengan informasi
+                            yang sesuai.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     FORM
+                ========================== -->
+
+                <form
+                    id="profileForm"
+                    class="profile-form"
+                >
+
+
+                    <!-- NAMA -->
+
+                    <div class="form-group full-width">
+
+                        <label for="userName">
+                            Nama
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="text"
+                                id="userName"
+                                name="userName"
+                                placeholder="Masukkan nama kamu"
+                                autocomplete="name"
+                                maxlength="50"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- USIA -->
+
+                    <div class="form-group">
+
+                        <label for="userAge">
+                            Usia
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="number"
+                                id="userAge"
+                                name="userAge"
+                                placeholder="Contoh: 15"
+                                min="1"
+                                max="100"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                tahun
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- JENIS KELAMIN -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Jenis Kelamin
+                        </label>
+
+                        <div class="gender-options">
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Laki-laki"
+                                    required
+                                >
+
+                                <span class="choice-content">
+
+                                    <span class="choice-icon">
+                                        ♂
+                                    </span>
+
+                                    <span>
+                                        Laki-laki
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Perempuan"
+                                >
+
+                                <span class="choice-content">
+
+                                    <span class="choice-icon">
+                                        ♀
+                                    </span>
+
+                                    <span>
+                                        Perempuan
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         KONDISI BATUK
+                    ========================== -->
+
+                    <div class="form-section-title">
+
+                        <span class="section-line"></span>
+
+                        <span>
+                            Kondisi Saat Ini
+                        </span>
+
+                        <span class="section-line"></span>
+
+                    </div>
+
+
+
+                    <!-- SEDANG BATUK -->
+
+                    <div class="form-group full-width">
+
+                        <label>
+                            Apakah kamu sedang mengalami batuk?
+                        </label>
+
+                        <div class="choice-grid two-columns">
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="coughCondition"
+                                    value="Ya"
+                                    required
+                                >
+
+                                <span class="choice-content">
+
+                                    <span>
+                                        Ya, sedang batuk
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="coughCondition"
+                                    value="Tidak"
+                                >
+
+                                <span class="choice-content">
+
+                                    <span>
+                                        Tidak sedang batuk
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FREKUENSI BATUK -->
+
+                    <div class="form-group full-width">
+
+                        <label for="coughFrequency">
+                            Seberapa sering kamu mengalami batuk?
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <span class="input-icon">
+                                ≋
+                            </span>
+
+                            <select
+                                id="coughFrequency"
+                                name="coughFrequency"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
+                                    Pilih frekuensi batuk
+                                </option>
+
+                                <option value="Jarang">
+                                    Jarang
+                                </option>
+
+                                <option value="Kadang-kadang">
+                                    Kadang-kadang
+                                </option>
+
+                                <option value="Sering">
+                                    Sering
+                                </option>
+
+                            </select>
+
+                            <span class="select-arrow">
+                                ▾
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- LAMA BATUK -->
+
+                    <div class="form-group full-width">
+
+                        <label for="coughDuration">
+                            Sudah berapa lama kamu mengalami batuk?
+                        </label>
+
+                        <div class="duration-options">
+
+                            <label class="duration-card">
+
+                                <input
+                                    type="radio"
+                                    name="coughDuration"
+                                    value="< 1 minggu"
+                                    required
+                                >
+
+                                <span class="duration-content">
+
+                                    <strong>
+                                        &lt; 1
+                                    </strong>
+
+                                    <small>
+                                        minggu
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="duration-card">
+
+                                <input
+                                    type="radio"
+                                    name="coughDuration"
+                                    value="1–2 minggu"
+                                >
+
+                                <span class="duration-content">
+
+                                    <strong>
+                                        1–2
+                                    </strong>
+
+                                    <small>
+                                        minggu
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="duration-card">
+
+                                <input
+                                    type="radio"
+                                    name="coughDuration"
+                                    value="> 2 minggu"
+                                >
+
+                                <span class="duration-content">
+
+                                    <strong>
+                                        &gt; 2
+                                    </strong>
+
+                                    <small>
+                                        minggu
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         SUBMIT
+                    ========================== -->
+
+                    <button
+                        type="submit"
+                        class="continue-button"
+                        id="continueButton"
+                    >
+
+                        <span class="button-dot"></span>
+
+                        Lanjut ke Rekaman
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <p class="required-note">
+                        * Semua informasi wajib diisi.
+                    </p>
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =========================
+                 LIVE PREVIEW
+            ========================== -->
+
+            <section
+                class="profile-preview"
+                id="profilePreview"
+            >
+
+                <div class="preview-header">
+
+                    <div>
+
+                        <span class="preview-label">
+                            PREVIEW
+                        </span>
+
+                        <h3>
+                            Profil Analisis
+                        </h3>
+
+                    </div>
+
+                    <span class="preview-status">
+                        ● Sesi aktif
+                    </span>
+
+                </div>
+
+
+                <div class="preview-content">
+
+                    <div
+                        class="preview-avatar"
+                        id="previewGenderIcon"
+                        aria-label="Avatar profil"
+                    >
+                        <span class="avatar-placeholder">
+                            ?
+                        </span>
+                    </div>
+
+
+                    <div class="preview-details">
+
+                        <div class="preview-name">
+
+                            <strong id="previewName">
+                                Nama kamu
+                            </strong>
+
+                            <span id="previewAge">
+                                Usia belum diisi
+                            </span>
+
+                        </div>
+
+
+                        <div class="preview-tags">
+
+                            <span id="previewGender">
+                                Jenis kelamin
+                            </span>
+
+                            <span id="previewCough">
+                                Kondisi batuk
+                            </span>
+
+                            <span id="previewFrequency">
+                                Frekuensi
+                            </span>
+
+                            <span id="previewDuration">
+                                Durasi batuk
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="profile-footer">
+
+        <strong>
+            CoughAnalyzer
+        </strong>
+
+        <span>
+            Audio analysis project for educational purposes.
+        </span>
+
+    </footer>
+
+
+
+    <!-- =========================
+         SCRIPT
+    ========================== -->
+
+    <script src="profil.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cough Analyzer</title>
+
+    <meta
+        name="description"
+        content="Cough Analyzer - Analisis suara batuk berbasis audio untuk tujuan edukasi."
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- MOBILE HERO FIX -->
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                width: 100%;
+                min-height: auto;
+                padding-left: 20px;
+                padding-right: 20px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+            .hero-title {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                overflow: visible;
+                box-sizing: border-box;
+            }
+
+            .hero-title > span {
+                display: block;
+                width: auto;
+                max-width: 100%;
+                white-space: normal;
+                overflow: visible;
+                overflow-wrap: normal;
+                word-break: normal;
+                box-sizing: border-box;
+                padding-right: 0;
+            }
+
+            .hero-description,
+            .hero-meta {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .hero-visual {
+                width: min(320px, 88vw);
+                height: min(320px, 88vw);
+                max-width: 100%;
+                flex-shrink: 0;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .hero-title {
+                font-size: clamp(34px, 11.5vw, 46px);
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .hero-visual {
+                width: min(285px, 86vw);
+                height: min(285px, 86vw);
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="#beranda"
+                class="logo"
+            >
+
+                <span class="logo-mark">
+
+                    <img
+                        src="images/logo.png"
+                        alt="CoughAnalyzer"
+                    >
+
+                </span>
+
+                <span class="logo-text">
+                    Cough<span>Analyzer</span>
+                </span>
+
+            </a>
+
+
+            <nav class="desktop-menu">
+
+                <a
+                    href="#beranda"
+                    class="active"
+                >
+                    Beranda
+                </a>
+
+                <a href="#kenali-tbc">
+                    Kenali TBC
+                </a>
+
+                <a href="#cara-kerja">
+                    Cara Kerja
+                </a>
+
+                <a href="#tentang">
+                    Tentang
+                </a>
+
+            </nav>
+
+
+            <button
+                class="mobile-menu"
+                type="button"
+                aria-label="Buka menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section
+            class="hero"
+            id="beranda"
+        >
+
+            <div class="hero-glow hero-glow-one"></div>
+
+            <div class="hero-glow hero-glow-two"></div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+
+                    <span class="hero-label-dot"></span>
+
+                    AUDIO ANALYSIS PROJECT
+
+                </div>
+
+
+                <h1 class="hero-title">
+
+                    <span>
+                        PENGEMBANGAN
+                    </span>
+
+                    <span class="gradient-text">
+                        REKA TB
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Cough Analyzer menggunakan rekaman suara
+                    untuk melihat karakteristik audio dari suara
+                    batuk secara sederhana dan edukatif.
+
+                </p>
+
+
+                <div class="hero-meta">
+
+                    <div>
+
+                        <strong>
+                            01
+                        </strong>
+
+                        <span>
+                            Record
+                        </span>
+
+                    </div>
+
+
+                    <div class="meta-line"></div>
+
+
+                    <div>
+
+                        <strong>
+                            02
+                        </strong>
+
+                        <span>
+                            Analyze
+                        </span>
+
+                    </div>
+
+
+                    <div class="meta-line"></div>
+
+
+                    <div>
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <span>
+                            Result
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="hero-circle circle-large"></div>
+
+                <div class="hero-circle circle-medium"></div>
+
+
+                <div class="hero-orbit orbit-one"></div>
+
+                <div class="hero-orbit orbit-two"></div>
+
+
+                <div class="hero-mic">
+
+                    <div class="hero-mic-glow"></div>
+
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"/>
+
+                        <path d="M19 11a7 7 0 0 1-14 0"/>
+
+                        <path d="M12 18v4"/>
+
+                        <path d="M8 22h8"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="sound-bars">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             KENALI TBC
+        ========================== -->
+
+        <section
+            class="tbc-intro-section"
+            id="kenali-tbc"
+        >
+
+            <div class="tbc-intro-container">
+
+
+                <div class="tbc-intro-heading">
+
+                    <span class="section-label">
+                        KENALI TBC
+                    </span>
+
+
+                    <h2>
+
+                        Apa itu
+                        <br>
+
+                        <span>TBC?</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Sebelum mencoba analisis audio,
+                        yuk kenali sedikit tentang Tuberkulosis
+                        atau TBC dan bagaimana penyakit ini
+                        berkaitan dengan sistem pernapasan.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="tbc-intro-content">
+
+
+                    <article class="tbc-intro-card tbc-intro-main">
+
+                        <div class="tbc-card-icon">
+                            <svg viewBox="0 0 64 64" aria-hidden="true">
+                                <path d="M31 17c-7-7-16-5-20 2-4 7-3 18 1 25 3 6 8 8 13 5 4-2 6-8 6-14V17Z"/>
+                                <path d="M33 17c7-7 16-5 20 2 4 7 3 18-1 25-3 6-8 8-13 5-4-2-6-8-6-14V17Z"/>
+                                <path d="M32 10v43"/>
+                            </svg>
+                        </div>
+
+
+                        <div>
+
+                            <span class="tbc-card-label">
+                                TENTANG TBC
+                            </span>
+
+
+                            <h3>
+                                Tuberkulosis
+                            </h3>
+
+
+                            <p>
+
+                                TBC adalah penyakit infeksi yang
+                                disebabkan oleh bakteri
+                                <i>Mycobacterium tuberculosis</i>.
+                                TBC paling sering menyerang paru-paru,
+                                sehingga dapat berkaitan dengan
+                                munculnya gangguan pada sistem
+                                pernapasan.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="tbc-intro-card">
+
+                        <div class="tbc-card-icon">
+                            <svg viewBox="0 0 64 64" aria-hidden="true">
+                                <circle cx="18" cy="32" r="5"/>
+                                <circle cx="34" cy="20" r="4"/>
+                                <circle cx="48" cy="34" r="6"/>
+                                <circle cx="34" cy="47" r="3"/>
+                                <path d="M23 30l7-7"/>
+                                <path d="M38 21l5 8"/>
+                                <path d="M43 38l-6 6"/>
+                            </svg>
+                        </div>
+
+
+                        <div>
+
+                            <span class="tbc-card-label">
+                                PENULARAN
+                            </span>
+
+
+                            <h3>
+                                Bagaimana TBC Menular?
+                            </h3>
+
+
+                            <p>
+
+                                TBC paru dapat menyebar melalui udara
+                                ketika seseorang dengan TBC aktif
+                                pada paru-paru batuk, bersin, berbicara,
+                                atau melakukan aktivitas yang menghasilkan
+                                partikel pernapasan.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="tbc-intro-card">
+
+                        <div class="tbc-card-icon">
+                            <svg viewBox="0 0 64 64" aria-hidden="true">
+                                <path d="M7 34h10l6-14 8 29 7-20 5 5h14"/>
+                            </svg>
+                        </div>
+
+
+                        <div>
+
+                            <span class="tbc-card-label">
+                                GEJALA UMUM
+                            </span>
+
+
+                            <h3>
+                                Kenali Tandanya
+                            </h3>
+
+
+                            <p>
+
+                                Beberapa gejala yang dapat ditemukan
+                                pada TBC antara lain batuk yang berlangsung
+                                lama, demam, keringat malam, rasa lelah,
+                                dan keluhan lain yang berkaitan dengan
+                                kondisi pernapasan.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <div class="tbc-intro-note">
+
+                        <span>
+                            ✦
+                        </span>
+
+                        <p>
+
+                            Informasi ini bersifat edukatif.
+                            Jika mengalami keluhan kesehatan,
+                            pemeriksaan oleh tenaga kesehatan tetap
+                            diperlukan untuk mengetahui kondisi
+                            yang sebenarnya.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             HOW IT WORKS
+        ========================== -->
+
+        <section
+            class="how-section"
+            id="cara-kerja"
+        >
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        HOW IT WORKS
+                    </span>
+
+
+                    <h2>
+
+                        Dari suara
+                        <br>
+
+                        menjadi <span>data.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Proses dibuat sederhana agar pengguna
+                        dapat memahami bagaimana sebuah
+                        rekaman audio dapat dianalisis.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="process-list">
+
+
+                    <article class="process-item">
+
+                        <div class="process-number">01</div>
+
+                        <div class="process-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48">
+                                <rect x="16" y="7" width="16" height="25" rx="8"/>
+                                <path d="M10 23a14 14 0 0 0 28 0"/>
+                                <path d="M24 37v6"/>
+                                <path d="M18 43h12"/>
+                            </svg>
+                        </div>
+
+
+                        <div class="process-content">
+
+                            <h3>
+                                Rekam Suara
+                            </h3>
+
+
+                            <p>
+
+                                Pengguna merekam suara batuk
+                                menggunakan mikrofon perangkat.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="process-item">
+
+                        <div class="process-number">02</div>
+
+                        <div class="process-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48">
+                                <path d="M4 25h6l4-10 6 20 6-28 6 28 4-12h8"/>
+                            </svg>
+                        </div>
+
+
+                        <div class="process-content">
+
+                            <h3>
+                                Ekstraksi Audio
+                            </h3>
+
+
+                            <p>
+
+                                Sistem membaca karakteristik dasar
+                                dari sinyal audio yang direkam.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="process-item">
+
+                        <div class="process-number">03</div>
+
+                        <div class="process-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48">
+                                <circle cx="20" cy="20" r="8"/>
+                                <path d="m27 27 10 10"/>
+                                <path d="M16 20h8M20 16v8"/>
+                            </svg>
+                        </div>
+
+
+                        <div class="process-content">
+
+                            <h3>
+                                Analisis
+                            </h3>
+
+
+                            <p>
+
+                                Data audio diproses untuk menghasilkan
+                                informasi mengenai karakteristik suara.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="process-item">
+
+                        <div class="process-number">04</div>
+
+                        <div class="process-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48">
+                                <path d="M8 36V25"/>
+                                <path d="M17 36V17"/>
+                                <path d="M26 36V22"/>
+                                <path d="M35 36V10"/>
+                                <path d="M6 40h36"/>
+                            </svg>
+                        </div>
+
+
+                        <div class="process-content">
+
+                            <h3>
+                                Hasil
+                            </h3>
+
+
+                            <p>
+
+                                Informasi analisis ditampilkan
+                                secara visual dan mudah dipahami.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section
+            class="about-section"
+            id="tentang"
+        >
+
+            <div class="about-glow"></div>
+
+
+            <div class="about-container">
+
+
+                <div class="about-content">
+
+                    <span class="section-label">
+                        ABOUT THE PROJECT
+                    </span>
+
+
+                    <h2>
+
+                        Suara juga
+                        <br>
+
+                        punya <span>informasi.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Cough Analyzer merupakan proyek yang
+                        mengeksplorasi bagaimana teknologi dapat
+                        digunakan untuk membaca karakteristik
+                        suara melalui data audio.
+
+                    </p>
+
+
+                    <p>
+
+                        Sistem menggunakan <strong>Coswara Dataset
+                        dari Hugging Face</strong> sebagai data
+                        referensi. Rekaman pengguna kemudian dianalisis
+                        dan dibandingkan dengan data referensi untuk
+                        menghasilkan <strong>skor kemiripan audio</strong>.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="about-visual">
+
+
+                    <div class="scanner">
+
+                        <div class="scanner-ring ring-1"></div>
+
+                        <div class="scanner-ring ring-2"></div>
+
+                        <div class="scanner-ring ring-3"></div>
+
+
+                        <div class="scanner-line"></div>
+
+
+                        <div class="scanner-center">
+
+                            <span></span>
+
+                            <small>
+                                AUDIO
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="scanner-info">
+
+                        <span>
+                            LIVE AUDIO
+                        </span>
+
+                        <strong>
+                            ANALYSIS
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section
+            class="cta-section"
+            id="analisis"
+        >
+
+            <div class="cta-glow"></div>
+
+
+            <div class="cta-content">
+
+                <span class="section-label">
+                    READY?
+                </span>
+
+
+                <h2>
+
+                    Let's analyze
+                    <br>
+
+                    your <span>sound.</span>
+
+                </h2>
+
+
+                <p>
+                    Mulai dengan satu rekaman suara.
+                </p>
+
+
+                <a
+                    href="profil.html"
+                    class="cta-button"
+                    id="startAnalysisBtn"
+                >
+
+                    <span class="cta-button-dot"></span>
+
+                    Mulai Analisis
+
+                    <span class="cta-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-logo">
+
+                Cough<span>Analyzer</span>
+
+            </div>
+
+
+            <p>
+                Audio analysis project for educational purposes.
+            </p>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Cough Analyzer
+                </span>
+
+
+                <span>
+                    Think • Analyze • Understand
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
