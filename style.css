@@ -10166,207 +10166,239 @@ body::before {
     .how-section .process-content::after { animation: none !important; }
 }
 
+
 /* =========================================================
-   FINAL MOBILE FIX — NAVBAR, BERANDA & KENALI TBC
-   Desktop styles remain unchanged.
+   HERO VISUAL — RESTORED AUDIO LAB ANIMATION
+   Keep the visual on the homepage; recording remains on rekam.html.
 ========================================================= */
 
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
+.hero-visual {
+    position: relative !important;
+    width: 450px !important;
+    height: 450px !important;
+    flex: 0 0 450px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+    transform: none !important;
+    overflow: visible !important;
+    isolation: isolate;
 }
 
-/* -------------------------
-   NAVBAR — MOBILE
-------------------------- */
-@media (max-width: 600px) {
-    .nav-container {
-        width: calc(100% - 24px) !important;
-        max-width: 100% !important;
-        height: 68px !important;
-        gap: 8px !important;
-    }
-
-    .logo {
-        gap: 6px !important;
-        min-width: 0 !important;
-        flex: 1 1 auto !important;
-        width: auto !important;
-        overflow: hidden !important;
-    }
-
-    .logo-mark {
-        width: 29px !important;
-        height: 29px !important;
-        min-width: 29px !important;
-        min-height: 29px !important;
-        flex-shrink: 0 !important;
-    }
-
-    .logo-mark img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-    }
-
-    .logo-text {
-        font-size: 13px !important;
-        letter-spacing: -0.6px !important;
-        white-space: nowrap !important;
-        line-height: 1 !important;
-        min-width: 0 !important;
-        flex-shrink: 1 !important;
-    }
-
-    .mobile-menu {
-        width: 36px !important;
-        height: 36px !important;
-        min-width: 36px !important;
-        min-height: 36px !important;
-        flex-shrink: 0 !important;
-    }
+.hero-circle {
+    position: absolute !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    z-index: 1;
 }
 
-@media (max-width: 380px) {
-    .nav-container {
-        width: calc(100% - 18px) !important;
-    }
-
-    .logo {
-        gap: 5px !important;
-    }
-
-    .logo-mark {
-        width: 26px !important;
-        height: 26px !important;
-        min-width: 26px !important;
-        min-height: 26px !important;
-    }
-
-    .logo-text {
-        font-size: 12px !important;
-        letter-spacing: -0.7px !important;
-    }
-
-    .mobile-menu {
-        width: 34px !important;
-        height: 34px !important;
-        min-width: 34px !important;
-        min-height: 34px !important;
-    }
+.circle-large {
+    inset: 28px !important;
+    border: 1px solid rgba(57,188,255,.18) !important;
+    background: radial-gradient(circle, rgba(44,170,255,.11), rgba(255,72,103,.035) 52%, transparent 72%) !important;
+    box-shadow: inset 0 0 80px rgba(40,167,255,.10), 0 0 70px rgba(39,160,255,.035) !important;
+    animation: heroBreath 4.5s ease-in-out infinite;
 }
 
-/* -------------------------
-   BERANDA / HERO — MOBILE
-   Prevent title and visual from being cut off.
-------------------------- */
+.circle-medium {
+    inset: 82px !important;
+    border: 1px solid rgba(255,87,112,.20) !important;
+    background: rgba(255,255,255,.012) !important;
+    animation: heroBreath 3.8s ease-in-out infinite reverse;
+}
+
+.hero-orbit {
+    position: absolute !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    z-index: 2;
+    border: 1px dashed rgba(79,190,255,.25) !important;
+    transform-origin: center;
+}
+
+.orbit-one {
+    inset: 7px !important;
+    animation: heroOrbitOne 16s linear infinite;
+}
+
+.orbit-two {
+    inset: 64px !important;
+    border-color: rgba(255,91,119,.22) !important;
+    transform: scaleX(1.28) rotate(-35deg);
+    animation: heroOrbitTwo 11s linear infinite reverse;
+}
+
+.hero-orbit::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: #43cfff;
+    box-shadow: 0 0 12px #43cfff, 0 0 28px rgba(67,207,255,.65);
+}
+
+.orbit-two::after {
+    background: #ff6078;
+    box-shadow: 0 0 12px #ff6078, 0 0 28px rgba(255,96,120,.55);
+}
+
+.hero-mic {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 136px !important;
+    height: 136px !important;
+    transform: translate(-50%,-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: linear-gradient(145deg, #2299ed 0%, #285aa0 48%, #1b315f 100%) !important;
+    border: 1px solid rgba(255,255,255,.24) !important;
+    box-shadow: 0 0 45px rgba(37,168,255,.36), 0 0 95px rgba(255,70,110,.13), inset 0 0 24px rgba(255,255,255,.10) !important;
+    z-index: 10 !important;
+    animation: heroMicFloat 3.8s ease-in-out infinite;
+}
+
+.hero-mic::before,
+.hero-mic::after {
+    content: "";
+    position: absolute;
+    inset: -13px;
+    border-radius: 50%;
+    border: 1px solid rgba(62,202,255,.20);
+    animation: heroPulseRing 2.8s ease-out infinite;
+}
+
+.hero-mic::after {
+    inset: -27px;
+    border-color: rgba(255,88,113,.11);
+    animation-delay: 1.2s;
+}
+
+.hero-mic-glow {
+    position: absolute !important;
+    inset: -20px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(54,190,255,.23), rgba(255,75,105,.06) 48%, transparent 72%) !important;
+    filter: blur(8px);
+    animation: pulseGlow 2.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-mic svg {
+    position: relative !important;
+    z-index: 3 !important;
+    width: 52px !important;
+    height: 52px !important;
+    fill: none !important;
+    stroke: #fff !important;
+    stroke-width: 1.55 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,.25));
+}
+
+.sound-bars {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 45px !important;
+    transform: translateX(-50%) !important;
+    width: 230px !important;
+    height: 58px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    z-index: 12 !important;
+    pointer-events: none;
+}
+
+.sound-bars span {
+    display: block !important;
+    width: 4px !important;
+    min-height: 10px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg,#38cfff,#a87cff 52%,#ff5d77) !important;
+    box-shadow: 0 0 8px rgba(68,197,255,.32);
+    animation: heroBars 1.05s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+.sound-bars span:nth-child(1){height:14px;animation-delay:.00s}
+.sound-bars span:nth-child(2){height:24px;animation-delay:.08s}
+.sound-bars span:nth-child(3){height:37px;animation-delay:.16s}
+.sound-bars span:nth-child(4){height:23px;animation-delay:.24s}
+.sound-bars span:nth-child(5){height:45px;animation-delay:.32s}
+.sound-bars span:nth-child(6){height:30px;animation-delay:.40s}
+.sound-bars span:nth-child(7){height:50px;animation-delay:.48s}
+.sound-bars span:nth-child(8){height:28px;animation-delay:.56s}
+.sound-bars span:nth-child(9){height:42px;animation-delay:.64s}
+.sound-bars span:nth-child(10){height:25px;animation-delay:.72s}
+.sound-bars span:nth-child(11){height:16px;animation-delay:.80s}
+
+@keyframes heroBars {
+    0% { transform: scaleY(.55); opacity:.48; }
+    100% { transform: scaleY(1); opacity:1; }
+}
+
+@keyframes heroBreath {
+    0%,100% { transform: scale(.985); opacity:.72; }
+    50% { transform: scale(1.018); opacity:1; }
+}
+
+@keyframes heroOrbitOne {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes heroOrbitTwo {
+    from { transform: scaleX(1.28) rotate(-35deg); }
+    to { transform: scaleX(1.28) rotate(325deg); }
+}
+
+@keyframes heroMicFloat {
+    0%,100% { transform: translate(-50%,-50%) translateY(0); }
+    50% { transform: translate(-50%,-50%) translateY(-7px); }
+}
+
+@keyframes heroPulseRing {
+    0% { transform: scale(.78); opacity:.75; }
+    70% { transform: scale(1.18); opacity:0; }
+    100% { transform: scale(1.18); opacity:0; }
+}
+
+@keyframes pulseGlow {
+    0%,100% { transform:scale(.94); opacity:.58; }
+    50% { transform:scale(1.12); opacity:1; }
+}
+
 @media (max-width: 900px) {
-    .hero {
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .hero-content {
-        min-width: 0 !important;
-        max-width: 100% !important;
-    }
-
-    .hero-title {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
-    }
-
-    .hero-title > span,
-    .hero-title-line {
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
     .hero-visual {
         width: min(410px, 88vw) !important;
         height: min(410px, 88vw) !important;
         flex-basis: auto !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        transform: none !important;
+        margin: 12px auto 0 !important;
     }
 }
 
-@media (max-width: 800px) {
-    .hero {
-        min-height: auto !important;
-        padding: 118px 20px 70px !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        overflow: hidden !important;
-    }
-
-    .hero-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    .hero-title {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-top: 24px !important;
-        font-size: clamp(38px, 10.5vw, 58px) !important;
-        letter-spacing: -2.5px !important;
-        line-height: 1.02 !important;
-    }
-
-    .hero-title > span,
-    .hero-title-line {
-        display: block !important;
-        width: auto !important;
-        max-width: 100% !important;
-        white-space: normal !important;
-        overflow: visible !important;
-        overflow-wrap: normal !important;
-        word-break: normal !important;
-        padding-right: 0 !important;
-        letter-spacing: inherit !important;
-    }
-
-    .hero-description,
-    .hero-meta {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .hero-description {
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-    }
-
+@media (max-width: 600px) {
     .hero-visual {
-        width: min(330px, 86vw) !important;
-        height: min(330px, 86vw) !important;
-        max-width: 100% !important;
-        flex-shrink: 0 !important;
-        margin: 8px auto 0 !important;
+        width: min(330px, 88vw) !important;
+        height: min(330px, 88vw) !important;
+        margin-top: 8px !important;
     }
 
-    .circle-large {
-        inset: 15px !important;
-    }
-
-    .circle-medium {
-        inset: 62px !important;
-    }
-
-    .orbit-one {
-        inset: 0 !important;
-    }
-
-    .orbit-two {
-        inset: 47px !important;
-    }
+    .circle-large { inset: 15px !important; }
+    .circle-medium { inset: 62px !important; }
+    .orbit-one { inset: 0 !important; }
+    .orbit-two { inset: 47px !important; }
 
     .hero-mic {
         width: 104px !important;
@@ -10385,204 +10417,938 @@ body {
         gap: 4px !important;
     }
 
+    .sound-bars span { width: 3px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-circle,
+    .hero-orbit,
+    .hero-mic,
+    .hero-mic-glow,
+    .hero-mic::before,
+    .hero-mic::after,
     .sound-bars span {
-        width: 3px !important;
+        animation: none !important;
     }
 }
 
-@media (max-width: 600px) {
+
+/* =========================================================
+   HERO FINAL FIX — VISUAL BESIDE CONTENT + ROTATING ORBITS
+========================================================= */
+@media (min-width: 801px) {
     .hero {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        flex-direction: row;
+        align-items: center;
     }
 
-    .hero-title {
-        font-size: clamp(35px, 10.8vw, 50px) !important;
-        letter-spacing: -2px !important;
+    .hero-content {
+        flex: 0 1 680px;
     }
 
     .hero-visual {
-        width: min(310px, 84vw) !important;
-        height: min(310px, 84vw) !important;
-        margin-top: 8px !important;
-    }
-
-    .circle-large {
-        inset: 15px !important;
-    }
-
-    .circle-medium {
-        inset: 58px !important;
-    }
-
-    .orbit-two {
-        inset: 44px !important;
-    }
-
-    .hero-mic {
-        width: 98px !important;
-        height: 98px !important;
-    }
-
-    .hero-mic svg {
-        width: 38px !important;
-        height: 38px !important;
-    }
-
-    .sound-bars {
-        width: 175px !important;
-        height: 42px !important;
-        bottom: 24px !important;
+        flex: 0 0 410px;
     }
 }
 
-@media (max-width: 480px) {
-    .hero {
-        padding: 112px 17px 60px !important;
+.hero-visual .orbit-one {
+    animation: heroOrbitOne 14s linear infinite;
+    transform-origin: center;
+}
+
+.hero-visual .orbit-two {
+    animation: heroOrbitTwo 10s linear infinite reverse;
+    transform-origin: center;
+}
+
+.hero-visual .circle-large {
+    animation: heroCircleFloat 7s ease-in-out infinite;
+}
+
+.hero-visual .circle-medium {
+    animation: heroCircleFloat 5.5s ease-in-out infinite reverse;
+}
+
+@keyframes heroOrbitOne {
+    from { transform: rotate(25deg); }
+    to { transform: rotate(385deg); }
+}
+
+@keyframes heroOrbitTwo {
+    from { transform: rotate(-35deg) scaleX(1.28); }
+    to { transform: rotate(-395deg) scaleX(1.28); }
+}
+
+@keyframes heroCircleFloat {
+    0%, 100% { opacity: .72; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.025); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-visual .orbit-one,
+    .hero-visual .orbit-two,
+    .hero-visual .circle-large,
+    .hero-visual .circle-medium {
+        animation: none !important;
+    }
+}
+
+/* =========================================================
+   HERO VISUAL — SIZE ONLY
+   Position/layout intentionally preserved.
+========================================================= */
+@media (min-width: 801px) {
+    .hero-visual {
+        width: 330px;
+        height: 330px;
+        flex-basis: 330px;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-visual {
+        width: min(330px, 100%);
+        height: 330px;
+    }
+}
+
+/* =========================================================
+   HERO VISUAL — SMALLER ONLY + KEEP ROTATING
+   No position/layout changes to surrounding content.
+========================================================= */
+@media (min-width: 801px) {
+    .hero-visual {
+        width: 280px !important;
+        height: 280px !important;
+        flex-basis: 280px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-visual {
+        width: min(280px, 100%) !important;
+        height: 280px !important;
+    }
+}
+
+/* Keep the circular signal/orbit visibly rotating */
+.hero-visual .orbit-one {
+    animation: heroOrbitOne 12s linear infinite !important;
+    transform-origin: center center;
+}
+
+.hero-visual .orbit-two {
+    animation: heroOrbitTwo 9s linear infinite reverse !important;
+    transform-origin: center center;
+}
+
+/* HERO VISUAL — SLIGHTLY LARGER ONLY */
+@media (min-width: 801px) {
+    .hero-visual {
+        width: 315px !important;
+        height: 315px !important;
+        flex-basis: 315px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-visual {
+        width: min(315px, 100%) !important;
+        height: 315px !important;
+    }
+}
+
+/* =========================================================
+   HOW IT WORKS — CLEAN SIGNAL ACCENT
+   Replace the large boxed bars under each description with
+   a minimal audio-signal accent. No layout/spacing changes.
+========================================================= */
+.how-section .process-content::after {
+    content: "" !important;
+    display: block !important;
+    position: relative !important;
+    width: 170px !important;
+    max-width: 170px !important;
+    height: 3px !important;
+    margin: 15px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        color-mix(in srgb, var(--station) 20%, transparent) 12%,
+        color-mix(in srgb, var(--station) 85%, transparent) 48%,
+        color-mix(in srgb, var(--station) 28%, transparent) 78%,
+        transparent 100%
+    ) !important;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--station) 30%, transparent) !important;
+    animation: cleanSignalPulse 2.8s ease-in-out infinite !important;
+    overflow: visible !important;
+}
+
+@keyframes cleanSignalPulse {
+    0%, 100% {
+        opacity: .38;
+        transform: scaleX(.72);
+        transform-origin: left center;
+    }
+    50% {
+        opacity: .95;
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+}
+
+@media (max-width: 800px) {
+    .how-section .process-content::after {
+        width: 120px !important;
+        max-width: 120px !important;
+        height: 2px !important;
+        margin-top: 9px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .how-section .process-content::after {
+        animation: none !important;
+        opacity: .6 !important;
+        transform: none !important;
+    }
+}
+
+/* =========================================================
+   CARA KERJA — ANIMATIONS OFF
+   Hanya mematikan animasi di section Cara Kerja.
+   Layout, ukuran, posisi, warna, dan isi tetap.
+========================================================= */
+.how-section,
+.how-section *,
+.how-section::before,
+.how-section::after,
+.how-section .process-list::before,
+.how-section .process-list::after,
+.how-section .process-item::before,
+.how-section .process-item::after,
+.how-section .process-icon::before,
+.how-section .process-content::before,
+.how-section .process-content::after {
+    animation: none !important;
+}
+
+/* =========================================================
+   CARA KERJA — REMOVE SIGNAL ACCENT
+   Menghilangkan garis aksen yang tadi ditambahkan.
+========================================================= */
+.how-section .process-content::after {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+    animation: none !important;
+}
+
+/* =========================================================
+   RECORD BUTTON — RAPIIH
+   Hanya memperbaiki susunan tombol rekam + teks.
+   Bagian CSS lainnya tidak diubah.
+========================================================= */
+
+.record-button {
+    width: 74px !important;
+    height: auto !important;
+    min-height: 74px !important;
+
+    margin: 8px auto 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+
+    transform: none;
+}
+
+.record-button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.record-button-inner {
+    width: 74px !important;
+    height: 74px !important;
+    flex: 0 0 74px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff5b72,
+            #d93659
+        ) !important;
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,67,98,.25) !important;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease !important;
+}
+
+.record-button:hover .record-button-inner {
+    transform: scale(1.06);
+    box-shadow:
+        0 16px 40px
+        rgba(255,67,98,.35) !important;
+}
+
+.record-button.recording .record-button-inner {
+    background:
+        linear-gradient(
+            145deg,
+            #ff385e,
+            #a82348
+        ) !important;
+}
+
+.record-button-text {
+    display: block !important;
+    position: static !important;
+
+    width: max-content !important;
+    height: auto !important;
+
+    margin: 10px 0 0 !important;
+    padding: 0 !important;
+
+    text-align: center !important;
+    white-space: nowrap !important;
+
+    color:
+        rgba(255,255,255,.52) !important;
+
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    letter-spacing: 1.5px !important;
+    line-height: 1.25 !important;
+}
+
+@media (max-width: 700px) {
+    .record-button {
+        width: 68px !important;
     }
 
-    .hero-title {
-        font-size: clamp(32px, 10.8vw, 44px) !important;
-        letter-spacing: -1.8px !important;
+    .record-button-inner {
+        width: 68px !important;
+        height: 68px !important;
+        flex-basis: 68px !important;
+    }
+
+    .record-button-text {
+        margin-top: 9px !important;
+        font-size: 9px !important;
+        letter-spacing: 1.2px !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL MOBILE FIX — BERANDA
+   Hanya merapikan hero agar tidak kepotong di HP.
+   Desktop dan section lain tetap dipertahankan.
+========================================================= */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+
+    .hero {
+        width: 100%;
+        min-height: auto;
+        padding: 118px 20px 70px;
+        box-sizing: border-box;
+
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        overflow: hidden;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: none;
+
+        box-sizing: border-box;
+        overflow: visible;
     }
 
     .hero-label {
-        font-size: 8px !important;
-        letter-spacing: 1.5px !important;
-        padding: 7px 10px !important;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hero-title {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 24px;
+        padding: 0;
+
+        box-sizing: border-box;
+        overflow: visible;
+
+        font-size: clamp(38px, 11.5vw, 58px);
+        line-height: 1.02;
+        letter-spacing: -2.5px;
+    }
+
+    .hero-title > span {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        white-space: normal;
+        overflow: visible;
+
+        overflow-wrap: normal;
+        word-break: normal;
+
+        box-sizing: border-box;
+
+        font-size: inherit;
+        line-height: 1.02;
+        letter-spacing: inherit;
     }
 
     .hero-description {
-        font-size: 13px !important;
+        width: 100%;
+        max-width: 520px;
+
+        margin-top: 20px;
+
+        font-size: 14px;
+        line-height: 1.7;
+
+        box-sizing: border-box;
     }
 
     .hero-meta {
-        gap: 10px !important;
-        margin-top: 28px !important;
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 28px;
+
+        gap: 10px;
+
+        box-sizing: border-box;
     }
 
     .hero-visual {
-        width: min(290px, 84vw) !important;
-        height: min(290px, 84vw) !important;
-    }
+        width: min(330px, 86vw);
+        height: min(330px, 86vw);
 
-    .circle-large {
-        inset: 13px !important;
-    }
+        max-width: 100%;
 
-    .circle-medium {
-        inset: 52px !important;
-    }
+        margin: 14px auto 0;
 
-    .orbit-two {
-        inset: 39px !important;
+        flex: 0 0 auto;
+        align-self: center;
+
+        transform: none;
+
+        box-sizing: border-box;
     }
 
     .hero-mic {
-        width: 90px !important;
-        height: 90px !important;
+        width: 104px;
+        height: 104px;
     }
 
     .hero-mic svg {
-        width: 35px !important;
-        height: 35px !important;
+        width: 40px;
+        height: 40px;
     }
 
     .sound-bars {
-        width: 160px !important;
+        width: min(185px, 58vw);
+        height: 44px;
+
+        bottom: 26px;
+
+        gap: 4px;
+    }
+
+    .sound-bars span {
+        width: 3px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .hero-title {
+        font-size: clamp(36px, 11.8vw, 52px);
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .hero-meta {
+        gap: 7px;
+    }
+
+    .hero-meta strong {
+        font-size: 12px;
+    }
+
+    .hero-meta span {
+        font-size: 9px;
+        letter-spacing: .7px;
+    }
+
+    .meta-line {
+        width: 18px;
+    }
+
+    .hero-visual {
+        width: min(300px, 84vw);
+        height: min(300px, 84vw);
+        margin-top: 12px;
+    }
+
+    .circle-large {
+        inset: 13px;
+    }
+
+    .circle-medium {
+        inset: 57px;
+    }
+
+    .orbit-one {
+        inset: 0;
+    }
+
+    .orbit-two {
+        inset: 43px;
+    }
+
+    .hero-mic {
+        width: 94px;
+        height: 94px;
+    }
+
+    .hero-mic svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .sound-bars {
+        width: 170px;
+        bottom: 23px;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 60px;
+    }
+
+    .hero-title {
+        font-size: 35px;
+        letter-spacing: -1.8px;
+    }
+
+    .hero-label {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-description {
+        font-size: 12.5px;
+    }
+
+    .hero-visual {
+        width: min(275px, 82vw);
+        height: min(275px, 82vw);
+    }
+
+    .hero-mic {
+        width: 88px;
+        height: 88px;
+    }
+
+    .hero-mic svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .sound-bars {
+        width: 150px;
+        bottom: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   FINAL MOBILE PATCH — KEEP ALL HERO ANIMATIONS
+   Base CSS above is preserved. This block only makes the
+   mobile hero smaller so nothing gets cut off.
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* MOBILE NAVBAR */
+@media (max-width: 800px) {
+    .nav-container {
+        width: calc(100% - 24px);
+        height: 64px;
+    }
+
+    .logo {
+        gap: 7px;
+        min-width: 0;
+        max-width: calc(100% - 52px);
+    }
+
+    .logo-mark {
+        width: 31px !important;
+        height: 31px !important;
+        flex: 0 0 31px;
+    }
+
+    .logo-text {
+        font-size: 12px !important;
+        letter-spacing: -.35px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .mobile-menu {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+    }
+}
+
+/* BERANDA / HERO — TEXT NEVER CUT OFF */
+@media (max-width: 800px) {
+    .hero {
+        width: 100%;
+        min-height: auto;
+        padding: 105px 18px 60px !important;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: none;
+        overflow: visible;
+    }
+
+    .hero-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 20px;
+        padding: 0 !important;
+        font-size: clamp(33px, 10vw, 48px) !important;
+        line-height: 1.04;
+        letter-spacing: -2px !important;
+        overflow: visible;
+    }
+
+    .hero-title > span,
+    .hero-title-line {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+        font-size: inherit !important;
+        line-height: 1.04;
+        letter-spacing: inherit !important;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .hero-description {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 18px;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .hero-meta {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 24px;
+        gap: 8px;
+    }
+
+    /* THE WHOLE ANIMATED VISUAL IS SMALLER */
+    .hero-visual {
+        width: min(280px, 78vw) !important;
+        height: min(280px, 78vw) !important;
+        max-width: 100%;
+        margin: 8px auto 0 !important;
+        flex: 0 0 auto !important;
+        align-self: center;
+        transform: none !important;
+        overflow: visible;
+    }
+
+    /* Smaller animated circles */
+    .circle-large {
+        inset: 12px !important;
+    }
+
+    .circle-medium {
+        inset: 50px !important;
+    }
+
+    .orbit-one {
+        inset: 0 !important;
+    }
+
+    .orbit-two {
+        inset: 38px !important;
+    }
+
+    /* Smaller animated microphone */
+    .hero-mic {
+        width: 88px !important;
+        height: 88px !important;
+    }
+
+    .hero-mic::before {
+        inset: -9px !important;
+    }
+
+    .hero-mic::after {
+        inset: -18px !important;
+    }
+
+    .hero-mic-glow {
+        inset: -13px !important;
+        filter: blur(6px);
+    }
+
+    .hero-mic svg {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    /* Smaller animated waveform */
+    .sound-bars {
+        width: min(155px, 55vw) !important;
         height: 38px !important;
-        bottom: 22px !important;
+        bottom: 21px !important;
         gap: 3px !important;
+    }
+
+    .sound-bars span {
+        width: 2.5px !important;
+    }
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+    .nav-container {
+        width: calc(100% - 20px);
+    }
+
+    .logo-mark {
+        width: 29px !important;
+        height: 29px !important;
+        flex-basis: 29px;
+    }
+
+    .logo-text {
+        font-size: 11px !important;
+    }
+
+    .hero {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-bottom: 50px !important;
+    }
+
+    .hero-title {
+        font-size: clamp(31px, 9.8vw, 42px) !important;
+        letter-spacing: -1.7px !important;
+    }
+
+    .hero-description {
+        font-size: 12.5px;
+    }
+
+    .hero-visual {
+        width: min(260px, 76vw) !important;
+        height: min(260px, 76vw) !important;
+        margin-top: 6px !important;
+    }
+
+    .circle-large {
+        inset: 10px !important;
+    }
+
+    .circle-medium {
+        inset: 46px !important;
+    }
+
+    .orbit-two {
+        inset: 35px !important;
+    }
+
+    .hero-mic {
+        width: 82px !important;
+        height: 82px !important;
+    }
+
+    .hero-mic svg {
+        width: 31px !important;
+        height: 31px !important;
+    }
+
+    .sound-bars {
+        width: 142px !important;
+        bottom: 19px !important;
     }
 }
 
 @media (max-width: 380px) {
-    .hero {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-
     .hero-title {
-        font-size: clamp(30px, 10.7vw, 40px) !important;
-        letter-spacing: -1.5px !important;
-    }
-
-    .hero-description {
-        font-size: 12.5px !important;
+        font-size: 29px !important;
+        letter-spacing: -1.4px !important;
     }
 
     .hero-visual {
-        width: min(275px, 82vw) !important;
-        height: min(275px, 82vw) !important;
+        width: min(240px, 72vw) !important;
+        height: min(240px, 72vw) !important;
+    }
+
+    .circle-medium {
+        inset: 42px !important;
+    }
+
+    .orbit-two {
+        inset: 32px !important;
     }
 
     .hero-mic {
-        width: 84px !important;
-        height: 84px !important;
+        width: 76px !important;
+        height: 76px !important;
     }
 
     .hero-mic svg {
-        width: 32px !important;
-        height: 32px !important;
+        width: 29px !important;
+        height: 29px !important;
     }
 
     .sound-bars {
-        width: 145px !important;
-        height: 35px !important;
-        bottom: 20px !important;
+        width: 130px !important;
+        height: 34px !important;
+        bottom: 17px !important;
     }
 }
 
-/* -------------------------
-   KENALI TBC — MOBILE
-   Main Tuberkulosis card follows
-   the exact vertical rhythm of
-   the two cards below it.
-------------------------- */
+/* =========================================================
+   TBC EDUCATION CARDS — MOBILE SAME RHYTHM
+   Tuberkulosis card follows the same vertical arrangement
+   as the two cards underneath it.
+========================================================= */
 @media (max-width: 800px) {
-    .tbc-intro-content > .tbc-intro-card.tbc-intro-main {
-        display: grid !important;
+    .tbc-intro-content > .tbc-intro-main {
         grid-template-columns: 1fr !important;
-        grid-template-rows: auto auto auto 1fr !important;
+        gap: 0 !important;
         align-content: start !important;
         align-items: start !important;
-        justify-content: start !important;
-        gap: 0 !important;
-        min-height: auto !important;
         padding: 22px !important;
     }
 
-    .tbc-intro-content > .tbc-intro-card.tbc-intro-main > .tbc-card-icon {
+    .tbc-intro-content > .tbc-intro-main > .tbc-card-icon {
         width: 42px !important;
         height: 42px !important;
         min-width: 42px !important;
         min-height: 42px !important;
         margin: 0 0 15px 0 !important;
-        align-self: start !important;
         justify-self: start !important;
     }
 
-    .tbc-intro-content > .tbc-intro-card.tbc-intro-main > div:not(.tbc-card-icon) {
+    .tbc-intro-content > .tbc-intro-main > div:not(.tbc-card-icon) {
         width: 100% !important;
         min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    .tbc-intro-content > .tbc-intro-card.tbc-intro-main .tbc-card-label {
-        display: block !important;
-        min-height: 12px !important;
+    .tbc-intro-content > .tbc-intro-main .tbc-card-label {
         margin: 0 0 8px 0 !important;
         line-height: 1.2 !important;
     }
 
-    .tbc-intro-content > .tbc-intro-card.tbc-intro-main h3 {
-        min-height: 0 !important;
+    .tbc-intro-content > .tbc-intro-main h3 {
         margin: 0 !important;
-        display: block !important;
-        line-height: 1.2 !important;
+        min-height: 0 !important;
     }
 
-    .tbc-intro-content > .tbc-intro-card.tbc-intro-main p {
+    .tbc-intro-content > .tbc-intro-main p {
         margin-top: 12px !important;
-        line-height: 1.75 !important;
     }
 }
